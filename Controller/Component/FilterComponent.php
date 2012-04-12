@@ -14,7 +14,7 @@
  * @package	app
  * @subpackage app.controller.components
  */
-class FilterComponent extends Object {
+class FilterComponent extends Component {
 
 /**
  * Default Component::$params
@@ -367,4 +367,5 @@ class FilterComponent extends Object {
 		return true;
 	}
 }
-?>
+
+/* end of file FilterComponent.php */

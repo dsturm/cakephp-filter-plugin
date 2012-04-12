@@ -1,5 +1,5 @@
 <?php
-class FilterHelper extends Helper {
+class FilterHelper extends AppHelper {
 	var $helpers = array('Form');
 
 	function form($model, $fields = array()) {
@@ -8,12 +8,12 @@ class FilterHelper extends Helper {
 
 		if (!empty($fields)) {
 			foreach ($fields as $field) {
-				if (empty($field) || substr($field, -3, 3)=='_id') {
+				if (empty($field) || substr($field, -3, 3) == '_id') {
 					$output .= '<th>&nbsp;</th>';
 				} else {
 					$opts = array('label' => false);
 					switch ($this->Form->fieldset['fields']["$model.$field"]['type']) {
-						case "text":
+						case "text" :
 							$opts += array('type' => 'text');
 							break;
 					}
@@ -22,12 +22,14 @@ class FilterHelper extends Helper {
 			}
 		}
 		$output .= '<th>';
-		$output .= $this->Form->button(__('Filter', true), array('type' => 'submit', 'name' => 'data[filter]'));
-		$output .= $this->Form->button(__('Reset', true), array('type' => 'submit', 'name' => 'data[reset]'));
+		$output .= $this->Form->button(__('Filter'), array('type' => 'submit', 'name' => 'data[filter]'));
+		$output .= $this->Form->button(__('Reset'), array('type' => 'submit', 'name' => 'data[reset]'));
 		$output .= '</th>';
 		$output .= $this->Form->end();
 		$output .= '</tr>';
 		return $output;
 	}
+
 }
-?>
+
+/* end of file FilterHelper.php */
